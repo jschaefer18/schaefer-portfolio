@@ -2,18 +2,18 @@ project:
   type: website
 
 website:
-  title: "Your_Name Data Science Portfolio"
+  title: "Josh Schaefer Data Science Portfolio"
   favicon: Images/favicon.png
   back-to-top-navigation: true
-  repo-url: https://github.com/your_url
+  repo-url: https://github.com/jschaefer18/schaefer-portfolio.git
   #repo-actions: [issue] #if you want to allow others to report issues on your site uncomment this line
 
   page-footer: 
     border: true
-    left: "Your_Name 2023©"
+    left: "Josh Schaefer 2023©"
     right: 
       - icon: linkedin
-        href: Your_LinkedIn_URL
+        href: https://www.linkedin.com/in/joshua-schaefer-a534b1284/
 
   navbar:
     background: primary
@@ -21,7 +21,7 @@ website:
     right:
       - text: "Home"
         file: index.qmd
-      - text: "DS250 Projects"
+      - text: "My Projects"
         file: projects.qmd
       - text: "My Resume"
         file: resume.qmd
