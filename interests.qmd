@@ -1,0 +1,55 @@
+---
+title: "Data Science Portflio"
+subtitle: "-Josh Schaefer"
+# use quarto markdown to 
+---
+
+
+
+## Interests
+---
+title: "Data Science Portflio"
+subtitle: "-Josh Schaefer"
+---
+
+- **Data Science:**
+  - Exploring and analyzing datasets to derive meaningful insights.
+  - Machine learning algorithms and predictive modeling.
+  - Data visualization techniques for effective communication of findings.
+
+- **Programming and Software Development:**
+  - Writing clean and efficient code.
+  - Exploring new programming languages and frameworks.
+  - Building innovative applications and solutions.
+
+- **Sports:**
+  - Playing and watching various sports, fostering a healthy and active lifestyle.
+  - Statistical analysis of sports data for performance optimization.
+  - Exploring the intersection of technology and sports analytics.
+
+- **Technology Trends:**
+  - Staying updated on the latest advancements in computer science and technology.
+  - Exploring emerging trends such as artificial intelligence and blockchain.
+
+- **Continuous Learning:**
+  - Engaging in online courses, workshops, and self-directed learning.
+  - Attending conferences and meetups to network with industry professionals.
+
+- **Problem Solving:**
+  - Enjoying the challenge of solving complex problems and puzzles.
+  - Participating in coding competitions and hackathons.
+
+- **Gaming:**
+  - Exploring and playing video games for entertainment and cognitive engagement.
+  - Interest in game development and interactive technologies.
+
+- **Travel and Exploration:**
+  - Exploring new places, cultures, and cuisines.
+  - Combining technology and travel for innovative experiences.
+
+
+
+
+
+
+

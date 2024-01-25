@@ -1,88 +1,48 @@
----
-layout: cv
-title: Isaac Newtons's CV
----
-# Isaac Newton
-Physicist, Mathematician, Cambridge professor.
+
+# Josh Schaefer
+Computer Science Student
 
 <div id="webaddress">
-<a href="isaac@applesdofall.org">isaac@applesdofall.org</a>
-| <a href="http://en.wikipedia.org/wiki/Isaac_Newton">My wikipedia page</a>
+  <a href="mailto:joshschaefer@gmail.com">Gmail</a>
+  | <a href="https://www.linkedin.com/in/joshua-schaefer-a534b1284/">LinkedIn</a>
 </div>
 
 
-## Currently
 
-Standing on the shoulders of giants
+## Objective Statement
+"As a dedicated computer science student, I bring a wealth of experience and a proven track record as a highly efficient team member in dynamic and fast-paced environments. My academic journey has equipped me with a strong foundation in computer science, allowing me to navigate complex challenges with confidence. I am passionate about continuous learning and possess a natural aptitude for assimilating new knowledge, which I seamlessly apply to deliver results with skill and efficiency. My commitment to excellence, coupled with a proactive approach to problem-solving, positions me as a valuable asset in contributing to innovative and collaborative projects. I am enthusiastic about embracing new challenges, collaborating with diverse teams, and further honing my skills to make meaningful contributions to the ever-evolving field of computer science."
 
-### Specialized in
+# Education:
+**High School Diploma | 2019-2023 | Monona Grove High School**  
+**Bachelor's Degree in CS | 2023-Present | Brigham Young University-Idaho**
 
-Laws of motion, gravitation, minting coins, disliking [Robert Hooke](http://en.wikipedia.org/wiki/Robert_Hooke)
+- AP Computer Science
+- AP Statistics
+- Programming with Functions- CSE111
+- Introduction to Databases- CIT111
+- Data Science Programming- DS250
 
+## Experience:
+**Website Maintenance | Mistletoe Memories | January 2020 - Present**<br>
+- Collected and responded to user feedback through iterative improvements to site structure and content.<br>
+- Tested and debugged site updates and prevented functional flaws from impacting public visitors.<br>
+- Troubleshoot issues with websites and fixed scripting and use issues.
 
-### Research interests
+**Team Member | Jimmy Johns | January 2021 - December 2021**<br>
+- Contributed to team success by completing jobs quickly and accurately.<br>
+- Kept work areas clean, organized and safe to promote efficiency and team safety.<br>
+- Operated register to process payments and collect cash payments for order totals.<br>
+- Learned all required tasks quickly to maximize performance
 
-Cooling, power series, optics, alchemy, planetary motions, apples.
-
-
-## Education
-
-`1654-1660`
-__The King's School, Grantham.__
-
-`June 1661 - now`
-__Trinity College, Cambridge__
-
-- Sizar
-
-`1667 - death`
-__Trinity College, Cambridge__
-
-- Fellow
-
-
-
-## Awards
-
-`2012`
-President, *Royal Society*, London, UK
-
-Associate, *French Academy of Science*, Paris, France
-
-
-
-## Publications
-
-<!-- A list is also available [online](http://scholar.google.co.uk/citations?user=LTOTl0YAAAAJ) -->
-
-### Journals
-
-`1669`
-Newton Sir I, De analysi per æquationes numero terminorum infinitas. 
-
-`1669`
-Lectiones opticæ.
-
-etc. etc. etc.
-
-### Patents
-
-`2012`
-Infinitesimal calculus for solutions to physics problems, [SMBC](http://www.techdirt.com/articles/20121011/09312820678/if-patents-had-been-around-time-newton.shtml) patent 001
-
-
-## Occupation
-
-`1600`
-__Royal Mint__, London
-
-- Warden
-- Minted coins
-
-`1600`
-__Lucasian professor of Mathematics__, Cambridge University
-
-
+## Skills & Abilities:
+**Critcal Thinking**<br>
+- Thinking critically and rationally to understand the connection between logic and ideas.<br>
+**Programming**<br>
+- Beginner in Java and Intermediate in Python. Around 3 years of experience.<br>
+**Teamwork**<br>
+- Dedicated, reliable, and contributing team member to small groups and big teams.<br>
+**Communication**<br>
+- Not afraid of voicing my opinion on topics and asking questions to understand better.
 
 <!-- ### Footer
 
