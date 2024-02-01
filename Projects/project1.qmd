@@ -1,7 +1,7 @@
 ---
-title: "Client Report - [Insert Project Title]"
+title: "Client Report - Project 1"
 subtitle: "Course DS 250"
-author: "[STUDENT NAME]"
+author: "Josh Schaefer"
 format:
   html:
     self-contained: true
@@ -31,6 +31,7 @@ execute:
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import math
 ```
 
 
@@ -50,14 +51,37 @@ __Highlight the Questions and Tasks__
 
 ## QUESTION|TASK 1
 
-__COPY PASTE QUESTION|TASK 1 FROM THE PROJECT HERE__
+__How does your name at your birth year compare to its use historically?__
 
-_type your results and analysis here_
+_Looking at the line chart my name used at my current birth year(2004) is not that much out of the ordinary. In the year 2004 the name "Joshua" is used a lot, but not as much as about a decade before. Looking at the table that I made at the bottom shows the amount of people named "Joshua" in 2004 which is 20838 while the average for all of the years provided in the dataset is 17624. Historically I am more likely to be born in 2004 because it is higher than the average._
 
 ```{python}
 #| label: Q1
 #| code-summary: Read and format data
 # Include and execute your code here
+joshua_data = df.query("name == 'Joshua'")
+total_joshuas_2004 = joshua_data.query("year == 2004")['Total'].sum()
+
+fig = px.line(joshua_data, x='year', y='Total', title='Occurrences of the name "Joshua" over the years')
+
+fig.add_annotation(
+    dict(
+        x=2004,
+        y=joshua_data['Total'].max(),
+        text='Year I was born(2004)',
+        showarrow=True,
+        arrowhead=2,
+        arrowcolor='red',
+        arrowwidth=2,
+        ax=20,
+        ay=-50,  # Adjust this value to control the arrow length
+    )
+)
+
+fig.show()
+
+
+
 
 
 ```
@@ -67,14 +91,25 @@ _include figures in chunks and discuss your findings in the figure._
 ```{python}
 #| label: Q1 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+
+fig = px.bar(
+    joshua_data.query("name == 'Joshua'"),
+    x='year',
+    y='Total',
+    title='Joshuas Over the Years',
 )
-chart.show()
+
+fig.update_traces(marker_color=['red' if year == 2004 else 'blue' for year in joshua_data['year']])
+
+fig.show()
+
+
+
+
+
+
 ```
 
 
@@ -84,77 +119,95 @@ chart.show()
 #| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
 # Include and execute your code here
-mydat = df.head(1000)\
+
+# Assuming joshua_data is your DataFrame
+joshua_data = df.query("name == 'Joshua'")\
     .groupby('year')\
     .sum()\
     .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+    .tail(15)\
+    .filter(["year", "Total"])
 
-display(mydat)
+# Calculate the average for Joshua
+average_value = joshua_data['Total'].mean()
+
+# Round the values in the DataFrame
+joshua_data['Total'] = joshua_data['Total'].round()
+average_value = round(average_value)
+
+# Create a DataFrame with two rows
+result_df = pd.DataFrame({'year': [2004, 'Average'], 'Total': [joshua_data[joshua_data['year'] == 2004]['Total'].values[0], average_value]})
+
+# Display the result_df
+display(result_df)
+
 
 ```
 
 
 ## QUESTION|TASK 2
 
-__COPY PASTE QUESTION|TASK 2 FROM THE PROJECT HERE__
+__If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?__
 
-_type your results and analysis here_
+_Looking at the bar chart that I created above I could get a pretty good idea of what year Brittany was most likely to be born in. My guess just from eyeballing it was between 31-37. I wanted to get the exact answer so I decided to make a program to do so. I did this by adding up all of the years in the data set in which Brittany was born and then dividing it by the total occurrences they were born. This gave me the year 1991. I subtracted that from 2024 to get 33. So if I was on the phone I would guess someone named Brittany would be around 33. I would not guess that they were younger than 20 and older than 45._
 
 ```{python}
 #| label: Q2
 #| code-summary: Read and format data
 # Include and execute your code here
-
+brittany_data = df.query("name == 'Brittany'")
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
+_In this cell I simplely just got all of the brittany data using the query method. I can use the data for my upcoming charts and calculations._
 
 ```{python}
 #| label: Q2 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
-)
-chart.show()
+fig = px.bar(brittany_data, x='year', y='Total', title='Occurrences of the name "Brittany" over the years')
+fig.show()
 ```
 
 
 ```{python}
 #| label: Q2 table
-#| code-summary: table example
+#| code-summary: code to find average year
 #| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
-# Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
+total_occurrences = df.query("name == 'Brittany'")['Total'].sum()
+average_year = (df.query("name == 'Brittany'")['Total'] * df.query("name == 'Brittany'")['year']).sum() / total_occurrences
+age = 2024 - average_year
+print(f"Average year of Brittany: {age:.0f}")
 
-display(mydat)
+
+
+
+
+
+
 
 ```
 
 
 ## QUESTION|TASK 3
 
-__COPY PASTE QUESTION|TASK 3 FROM THE PROJECT HERE__
+__Mary, Martha, Peter, and Paul are all Christian names. From 1920 - 2000, compare the name usage of each of the four names. What trends do you notice?__
 
-_type your results and analysis here_
+_After creating both the line chart and the table I can see that at around 1952 was the peak of the use of all of these Christian names. After that it started slowly declining until around 1980 where you didn't really see these names used as much. I find it super intresting why these names started not getting used anymore. I wonder if Christian names became less popular or the world just moved onto new names._
 
 ```{python}
 #| label: Q3
 #| code-summary: Read and format data
 # Include and execute your code here
-
+# Create a query to filter the data for the specified names
+# Use query method to filter based on the values in the "name" column
+names_data = df.query("name in ['Mary', 'Martha', 'Peter', 'Paul']")
+mary_data = names_data.query("name == 'Mary'")
+martha_data = names_data.query("name == 'Martha'")
+peter_data = names_data.query("name == 'Peter'")
+paul_data = names_data.query("name == 'Paul'")
 
 ```
 
@@ -166,11 +219,17 @@ _include figures in chunks and discuss your findings in the figure._
 #| fig-cap: "My useless chart"
 #| fig-align: center
 # Include and execute your code here
-chart = px.bar(df.head(200),
-    x="name", 
-    y="AK"
+fig = px.line(names_data, x='year', y='Total', color='name', title='Name Usage Over the Years')
+fig.add_annotation(
+    x=1952,
+    y=max(names_data['Total']),  
+    text="The Peak(1952)",
+    showarrow=True,
+    arrowhead=3,
+    ax=0,
+    ay=-40
 )
-chart.show()
+fig.show()
 ```
 
 
@@ -180,13 +239,33 @@ chart.show()
 #| tbl-cap: "Not much of a table"
 #| tbl-cap-location: top
 # Include and execute your code here
-mydat = df.head(1000)\
-    .groupby('year')\
-    .sum()\
-    .reset_index()\
-    .tail(10)\
-    .filter(["year", "AK","AR"])
 
-display(mydat)
+mary_peak_year = mary_data.loc[mary_data['Total'].idxmax(), 'year']
+martha_peak_year = martha_data.loc[martha_data['Total'].idxmax(), 'year']
+peter_peak_year = peter_data.loc[peter_data['Total'].idxmax(), 'year']
+paul_peak_year = paul_data.loc[paul_data['Total'].idxmax(), 'year']
+
+
+peak_years_df = pd.DataFrame({
+    'Name': ['Mary', 'Martha', 'Peter', 'Paul', 'Average'],
+    'Total': [mary_data['Total'].max(), martha_data['Total'].max(), peter_data['Total'].max(), paul_data['Total'].max(), None],
+    'Year': [mary_peak_year, martha_peak_year, peter_peak_year, paul_peak_year, None]
+})
+
+peak_years_df['Total'] = peak_years_df['Total'].round()
+peak_years_df['Year'] = peak_years_df['Year'].round()
+
+
+average_peak = peak_years_df['Year'][:-1].mean()
+average_peak = math.ceil(average_peak)
+
+peak_years_df.loc[4, 'Year'] = average_peak
+
+display(peak_years_df)
+
+
 
 ```
+_In this table total is the total amount of the highest year. The highest year is the year that the name was most used._
+
+
