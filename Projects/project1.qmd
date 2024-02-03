@@ -36,9 +36,7 @@ import math
 
 
 ## Elevator pitch
-
-_paste your elevator pitch here_
-_A SHORT (4-5 SENTENCES) PARAGRAPH THAT `DESCRIBES KEY INSIGHTS` TAKEN FROM METRICS IN THE PROJECT RESULTS THINK TOP OR MOST IMPORTANT RESULTS._
+_Looking at all of the charts and tables that I have provided I can come to lots of interesting conclusion. The first thing I learned from these graphs was when I was born my name "Joshua" was more likely to be used during that year. What I learned from my second graph was that if someone was named "Brittany" they are most likely to be around 33 and very unlikely to be older than 45 and younger than 20. For my third graph I used a set of christian names and saw that most of them peaked around mid 1950s. After they started slowly declining. For my final graph I saw that if a movie character has a unique name it can influence its use dramatically. For example the use of the name "Forrest" had a 443% increase from 1984 to 1994. These are the main finding of my graphs and tables._
 
 ```{python}
 #| label: project data
@@ -67,14 +65,14 @@ fig = px.line(joshua_data, x='year', y='Total', title='Occurrences of the name "
 fig.add_annotation(
     dict(
         x=2004,
-        y=joshua_data['Total'].max(),
+        y=total_joshuas_2004.max(),
         text='Year I was born(2004)',
         showarrow=True,
         arrowhead=2,
         arrowcolor='red',
         arrowwidth=2,
         ax=20,
-        ay=-50,  # Adjust this value to control the arrow length
+        ay=-80, 
     )
 )
 
@@ -89,37 +87,6 @@ fig.show()
 _include figures in chunks and discuss your findings in the figure._
 
 ```{python}
-#| label: Q1 chart
-#| code-summary: plot example
-#| fig-align: center
-# Include and execute your code here
-
-fig = px.bar(
-    joshua_data.query("name == 'Joshua'"),
-    x='year',
-    y='Total',
-    title='Joshuas Over the Years',
-)
-
-fig.update_traces(marker_color=['red' if year == 2004 else 'blue' for year in joshua_data['year']])
-
-fig.show()
-
-
-
-
-
-
-```
-
-
-```{python}
-#| label: Q1 table
-#| code-summary: table example
-#| tbl-cap: "Not much of a table"
-#| tbl-cap-location: top
-# Include and execute your code here
-
 # Assuming joshua_data is your DataFrame
 joshua_data = df.query("name == 'Joshua'")\
     .groupby('year')\
@@ -128,20 +95,15 @@ joshua_data = df.query("name == 'Joshua'")\
     .tail(15)\
     .filter(["year", "Total"])
 
-# Calculate the average for Joshua
-average_value = joshua_data['Total'].mean()
-
-# Round the values in the DataFrame
+# Calculate the average for Joshua and round totals
+average_value = round(joshua_data['Total'].mean())
 joshua_data['Total'] = joshua_data['Total'].round()
-average_value = round(average_value)
 
 # Create a DataFrame with two rows
 result_df = pd.DataFrame({'year': [2004, 'Average'], 'Total': [joshua_data[joshua_data['year'] == 2004]['Total'].values[0], average_value]})
 
 # Display the result_df
 display(result_df)
-
-
 ```
 
 
@@ -149,7 +111,7 @@ display(result_df)
 
 __If you talked to someone named Brittany on the phone, what is your guess of his or her age? What ages would you not guess?__
 
-_Looking at the bar chart that I created above I could get a pretty good idea of what year Brittany was most likely to be born in. My guess just from eyeballing it was between 31-37. I wanted to get the exact answer so I decided to make a program to do so. I did this by adding up all of the years in the data set in which Brittany was born and then dividing it by the total occurrences they were born. This gave me the year 1991. I subtracted that from 2024 to get 33. So if I was on the phone I would guess someone named Brittany would be around 33. I would not guess that they were younger than 20 and older than 45._
+_Looking at the bar chart that I created above I could get a pretty good idea of what year Brittany was most likely to be born in. My guess just from eyeballing it was between 31-37. I wanted to get the exact answer so I decided to make a program to do so. This gave me the age of 33 which means they were born in 1991. So if I was on the phone I would guess someone named Brittany would be around 33. I would not guess that they were younger than 20 and older than 45._
 
 ```{python}
 #| label: Q2
@@ -158,8 +120,6 @@ _Looking at the bar chart that I created above I could get a pretty good idea of
 brittany_data = df.query("name == 'Brittany'")
 
 ```
-
-_In this cell I simplely just got all of the brittany data using the query method. I can use the data for my upcoming charts and calculations._
 
 ```{python}
 #| label: Q2 chart
@@ -211,12 +171,10 @@ paul_data = names_data.query("name == 'Paul'")
 
 ```
 
-_include figures in chunks and discuss your findings in the figure._
-
 ```{python}
 #| label: Q3 chart
 #| code-summary: plot example
-#| fig-cap: "My useless chart"
+#| fig-cap: ""
 #| fig-align: center
 # Include and execute your code here
 fig = px.line(names_data, x='year', y='Total', color='name', title='Name Usage Over the Years')
@@ -266,6 +224,42 @@ display(peak_years_df)
 
 
 ```
-_In this table total is the total amount of the highest year. The highest year is the year that the name was most used._
+
+## QUESTION|TASK 4
+
+__Think of a unique name from a famous movie. Plot the usage of that name and see how changes line up with the movie release. Does it look like the movie had an effect on usage?__
+
+_Looking at the line graph that I have provided you can see that the name Forrest started off with some pretty high usage between 1915-1930. Through the next couple decades it seems to have a slow decline until the release of the film "Forrest Gump" in 1994. You can see the spike in the graph and how much this movie effected the usage of the name. I decided to see the percent increase in the name Forrest from 1984-1994. It turned out to be around 443%. Knowing this I can come to the conclusion that the film "Forrest Gump" greatly effected the usage of the name._
 
 
+```{python}
+#| label: Q4 table
+#| code-summary: table example
+#| tbl-cap: "Not much of a table"
+#| tbl-cap-location: top
+# Include and execute your code here
+
+forrest_data = df.query("name == 'Forrest'")
+
+fig = px.line(forrest_data, x='year', y='Total', title='Occurrences of the name "Forrest" over the years')
+
+
+
+
+fig.add_annotation(
+    dict(
+        x=1994,
+        y=forrest_data['Total'].max(),
+        text='Forrest Gump Release(1994)',
+        showarrow=True,
+        arrowhead=2,
+        arrowcolor='red',
+        arrowwidth=2,
+        ax=20,
+        ay=-80, 
+    )
+)
+fig.show()
+
+
+```
