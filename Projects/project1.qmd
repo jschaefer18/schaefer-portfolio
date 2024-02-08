@@ -122,7 +122,7 @@ brittany_data = df.query("name == 'Brittany'")
 ```
 
 ```{python}
-#| label: Q2 chart
+#| label: Q2 chartx
 #| code-summary: plot example
 #| fig-align: center
 # Include and execute your code here
